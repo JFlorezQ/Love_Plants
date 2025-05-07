@@ -7,3 +7,7 @@ conn.sync({ force: false }).then(() => {
     console.log("%s listening at " + PORT); 
   });
 });
+
+server.get("/", (req, res) => {
+  res.send("El backend de Love Plants está funcionando");
+});
