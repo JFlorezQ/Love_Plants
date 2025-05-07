@@ -2,11 +2,11 @@ function Banners() {
   return (
     <div className="m-4 p-8 max-w-full overflow-hidden">
       {/* Banner 1 */}
-      <div className="flex justify-center items-center mb-4">
+      <div className="flex justify-center items-center mb-4 px-20">
         <img
           src="/banner1.png"
           alt="banner1"
-          className="w-full max-h-[30rem] object-cover"
+          className="w-full h-[30rem] object-cover"
         />
       </div>
 
@@ -30,7 +30,6 @@ function Banners() {
     </div>
   );
 }
-
 
 
 export default Banners;
