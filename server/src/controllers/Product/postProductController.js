@@ -21,13 +21,18 @@ const postProductsController = async (
   color_id,
   discount
 ) => {
+  // 🔁 OPCIÓN A (USAR CLOUDINARY) – Solo si ya configuraste .env y necesitas subir imágenes
+  /*
   const uploadImages = image.map(async (img) => {
     const cloudinaryUpload = await cloudinary.uploader.upload(img);
     return cloudinaryUpload.secure_url;
   });
 
   const imagesUrls = await Promise.all(uploadImages);
-  
+  */
+
+  // ✅ OPCIÓN B (USAR URLs PÚBLICAS DIRECTAMENTE)
+  const imagesUrls = image; // Ya es un array con URLs válidas
 
   const newProduct = await Product.create({
     name,
@@ -35,7 +40,7 @@ const postProductsController = async (
     price,
     specifications,
     stock,
-    imageArray: imagesUrls.map((image) => image),
+    imageArray: imagesUrls,
     color_id,
     brand_id,
     category_id,
