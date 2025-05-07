@@ -72,10 +72,16 @@ Favorite.belongsTo(Product, {foreignKey: 'product_id'})
 
 sequelize.authenticate()
    .then(() => {
-      console.log('Connection to the database has been established successfully.');
+      console.log('✅ Conexión a la base de datos establecida.');
+
+      // Sincroniza modelos -> crea o actualiza tablas
+      return sequelize.sync({ alter: true });
+   })
+   .then(() => {
+      console.log('✅ Todas las tablas fueron sincronizadas con la DB.');
    })
    .catch(err => {
-      console.error('Unable to connect to the database:', err);
+      console.error('❌ Error al conectar o sincronizar con la base de datos:', err);
    });
 
 module.exports = {
@@ -90,3 +96,4 @@ module.exports = {
    PurchaseHistory,
    conn: sequelize, 
 };
+
