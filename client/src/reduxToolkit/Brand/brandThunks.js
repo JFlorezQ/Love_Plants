@@ -1,7 +1,7 @@
 import { getBrandSlice, postBrandSlice } from "./brandSlice";
 import axios from "axios";
 
-const API_URL = "https://drewili-pf-back.onrender.com/brand";
+const API_URL = "https://love-plants.onrender.com/brand";
 
 export const getBrand = () => {
   return async (dispatch) => {

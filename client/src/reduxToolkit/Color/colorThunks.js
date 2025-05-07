@@ -1,7 +1,7 @@
 import { getColorSlice, postColorSlice } from "./colorSlice";
 import axios from "axios";
 
-const API_URL = "https://drewili-pf-back.onrender.com/color";
+const API_URL = "https://love-plants.onrender.com/color";
 
 export const getColor = () => {
   return async (dispatch) => {

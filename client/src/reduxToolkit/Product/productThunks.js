@@ -10,10 +10,10 @@ import {
 } from "./productSlice";
 import axios from "axios";
 
-const API_URL = "https://drewili-pf-back.onrender.com/product";
-const SEARCH_API_URL = "https://drewili-pf-back.onrender.com/product/product/";
+const API_URL = "https://love-plants.onrender.com/product";
+const SEARCH_API_URL = "https://love-plants.onrender.com/product/product/";
 const CATEGORY_FILTER_API_URL =
-  "https://drewili-pf-back.onrender.com/filterby/category";
+  "https://love-plants.onrender.com/filterby/category";
 
 export const getProducts = () => {
   return async (dispatch) => {

@@ -6,7 +6,7 @@ export const getSalesCart = (userId) => {
   return async (dispatch) => {
     try {
       const response = await axios.get(
-        `https://drewili-pf-back.onrender.com/salesCart/user/${userId}`
+        `https://love-plants.onrender.com/salesCart/user/${userId}`
       );
       const { products, totalCartPrice } = response.data;
       dispatch(getSalesCartSlice({ products, totalCartPrice }));
@@ -20,7 +20,7 @@ export const deleteSalesCart = (salesCartId, userId) => {
   return async (dispatch) => {
     try {
       const response = await axios.delete(
-        `https://drewili-pf-back.onrender.com/salescart/delete`,
+        `https://love-plants.onrender.com/salescart/delete`,
         { params: { id: salesCartId, userId: userId } }
       );
       const { products, totalCartPrice } = response.data;
@@ -32,7 +32,7 @@ export const updateSalesCart = (salesCartId, updatedQuantity, userId) => {
   return async (dispatch) => {
     try {
       const response = await axios.put(
-        `https://drewili-pf-back.onrender.com/salescart/update`,
+        `https://love-plants.onrender.com/salescart/update`,
         { id: salesCartId, quantity: updatedQuantity, userId: userId }
       );
       
@@ -44,7 +44,7 @@ export const updateSalesCart = (salesCartId, updatedQuantity, userId) => {
 export const allDelete = (userId) =>{
   return async (dispatch)=>{
     try {
-      await axios.delete(`https://drewili-pf-back.onrender.com/salescart/alldelete/${userId}`)
+      await axios.delete(`https://love-plants.onrender.com/salescart/alldelete/${userId}`)
       dispatch(allDeleteSlice())
     } 
     catch (error) {

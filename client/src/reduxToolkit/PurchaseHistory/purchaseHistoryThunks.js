@@ -9,7 +9,7 @@ export const getPurchaseHistory = (userId) => {
   return async (dispatch) => {
     try {
       const response = await axios.get(
-        `https://drewili-pf-back.onrender.com/history/${userId}`
+        `https://love-plants.onrender.com/history/${userId}`
       );
       
       const purchaseHistory = response.data;

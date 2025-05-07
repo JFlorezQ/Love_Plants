@@ -10,7 +10,7 @@ import userSlice, {
 } from "./userSlice";
 import axios from "axios";
 
-const API_URL = "https://drewili-pf-back.onrender.com/user";
+const API_URL = "https://love-plants.onrender.com/user";
 
 export const getUser = () => {
   return async (dispatch) => {

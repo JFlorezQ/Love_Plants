@@ -6,7 +6,7 @@ import {
   } from "./notificationSlice";
   import axios from "axios";
   
-  const API_URL = "https://drewili-pf-back.onrender.com/nodemailer/";
+  const API_URL = "https://love-plants.onrender.com/nodemailer/";
   
   export const postNotificationCreation = (maildata) => {
     return async (dispatch) => {
