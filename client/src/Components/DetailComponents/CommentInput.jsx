@@ -14,7 +14,7 @@ const CommentInput = ({ user_id, product_id, onCommentPosted }) => {
   console.log(comments);
   const commentsState = useSelector((state) => state.comments);
   console.log(commentsState);
-
+ 
   const handleCommentChange = (e) => {
     setComment(e.target.value);
   };

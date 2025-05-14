@@ -16,7 +16,7 @@ const StarRating = ({ rating, onRatingChange }) => {
             star <= rating ? "text-chiliRed" : "text-gray-300"
           }`}
           onClick={() => handleClick(star)}
-        >
+        > 
           &#9733;
         </span>
       ))}

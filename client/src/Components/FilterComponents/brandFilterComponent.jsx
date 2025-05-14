@@ -35,13 +35,13 @@ const BrandFilterComponent = ({ setActualPage }) => {
   return (
     <div className="mb-4 w-full">
       <div style={{ marginRight: "4px" }}>
-        <h2 className="block text-sm font-bold mb-4">Brand Filter</h2>
+        <h2 className="block text-sm font-bold mb-4">Cuidados</h2>
         <div className="mb-4">
           <label
             htmlFor="brand"
             className="block text-sm font-medium text-gray-700"
           >
-            Seleccionar Marca:
+            Seleccionar cuidados:
           </label>
           <select
             id="brand"
@@ -49,7 +49,7 @@ const BrandFilterComponent = ({ setActualPage }) => {
             onChange={(e) => handleBrandChange(e.target.value)}
             className="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm"
           >
-            <option value="">Seleccionar Marca</option>
+            <option value="">Seleccionar cuidados </option>
             {brandList.map((brand) => (
               <option key={brand.id} value={brand.brand}>
                 {brand.brand}
