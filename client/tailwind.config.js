@@ -6,10 +6,10 @@ export default {
   theme: {
     colors: {
       // Colores principales (modificar solo estos para cambiar toda la UI)
-      PrimaryColor: "#A5B68D",      // Color principal (botones principales, elementos destacados)
-      SecondaryColor: "#404145",    // Color secundario (botones secundarios, fondos alternos)
-      AccentColor: "#E50046",       // Color de acento (alertas, enlaces)
-      NeutralColor: "#ECDFCC",      // Color neutro para fondos secundarios
+      PrimaryColor: "#47A584",      // Color principal (botones principales, elementos destacados)
+      SecondaryColor: "#B4D19B",    // Color secundario (botones secundarios, fondos alternos)
+      AccentColor: "#E9A6B3",       // Color de acento (alertas, enlaces)
+      NeutralColor: "#F3E5AB",      // Color neutro para fondos secundarios
 
       // Básicos (blanco y negro)
       White: "#FFFFFF",             // Blanco estándar
