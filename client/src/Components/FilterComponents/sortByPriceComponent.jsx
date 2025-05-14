@@ -1,4 +1,4 @@
-iimport React from "react";
+import React from "react";
 import { useDispatch } from "react-redux";
 import { filterPrice } from "../../reduxToolkit/Filtros/sortByPricethunk";
 // import { filterRating } from "../../reduxToolkit/Filtros/sortByRatingThunk"; // Comentado, no usado
