@@ -21,7 +21,7 @@ function Productcard({
   stock,
   category,
   color,
-  image,
+  images,
   brand,
   images
 }) {
