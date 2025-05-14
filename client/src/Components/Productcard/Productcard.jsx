@@ -166,7 +166,7 @@ function Productcard({
             {
               realPrice && discount > 0 ? 
                 <>
-                  <h3 className="line-through">S/ {realPrice}</h3>
+                  <h3 className="line-through">$ {realPrice}</h3>
                   <h3 className="text-gray-600 font-bold">$ {price}</h3>
                 </> 
                 :

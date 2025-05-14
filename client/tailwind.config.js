@@ -9,7 +9,7 @@ export default {
       PrimaryColor: "#47A584",      // Color principal (botones principales, elementos destacados)
       SecondaryColor: "#B4D19B",    // Color secundario (botones secundarios, fondos alternos)
       AccentColor: "#E9A6B3",       // Color de acento (alertas, enlaces)
-      NeutralColor: "#F3E5AB",      // Color neutro para fondos secundarios
+      NeutralColor: "#E9A6B3",      // Color neutro para fondos secundarios
 
       // Básicos (blanco y negro)
       White: "#FFFFFF",             // Blanco estándar
