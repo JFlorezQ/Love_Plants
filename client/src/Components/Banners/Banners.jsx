@@ -1,25 +1,30 @@
 function Banners() {
   return (
-    <div className="m-4 p-8 max-w-full overflow-hidden">
-      {/* Banner 1 */}
+    // Contenedor principal con márgenes, padding, ancho máximo y sin desbordamiento
+    <div className="m-4 p-8 max-w-full overflow-hidden bg-White">
+      
+      {/* Banner principal centrado con margen inferior y padding horizontal */}
       <div className="flex justify-center items-center mb-4 px-20">
         <img
           src="/banner1.png"
           alt="banner1"
-          className="w-full h-[30rem] object-cover"
+          className="w-full h-[30rem] object-cover rounded-lg shadow-md"
         />
       </div>
 
-      {/* Banners 2 y 3 */}
+      {/* Contenedor secundario para banners 2 y 3, alineados horizontalmente */}
       <div className="flex justify-center items-stretch gap-4 px-20">
-        <div className="w-1/2 h-[30rem] overflow-hidden">
+        {/* Banner 2: ocupa la mitad del ancho disponible */}
+        <div className="w-1/2 h-[30rem] overflow-hidden rounded-lg shadow-md">
           <img
             src="/banner2.png"
             alt="banner2"
             className="w-full h-full object-cover"
           />
         </div>
-        <div className="w-1/2 h-[30rem] overflow-hidden">
+
+        {/* Banner 3: ocupa la otra mitad del ancho disponible */}
+        <div className="w-1/2 h-[30rem] overflow-hidden rounded-lg shadow-md">
           <img
             src="/banner3.png"
             alt="banner3"
@@ -30,6 +35,5 @@ function Banners() {
     </div>
   );
 }
-
 
 export default Banners;
