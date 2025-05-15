@@ -5,13 +5,13 @@ import axios from "axios";
 import Cookies from "js-cookie";
 import { useSelector } from "react-redux";
 
-
 import addToCartIcon from "../../icons/add-to-cart.png";
 import addedToCartIcon from "../../icons/added-to-cart.png";
 import emptyHeartIcon from "../../icons/emptyHeart.png";
 import filledHeartIcon from "../../icons/filledHeart.png";
 import Slider from "react-slick";
 import Swal from 'sweetalert2';
+
 function Productcard({
   id,
   name,
@@ -27,6 +27,7 @@ function Productcard({
   brand,
   images
 }) {
+  console.log(`Producto ${id} tiene imágenes:`, images);
   const [addedToCart, setAddedToCart] = useState(false);
   const [loading, setLoading] = useState(false);
 
@@ -54,7 +55,6 @@ function Productcard({
   const handleAddToCart = async () => {
     try {
       if (!userId) {
-       
         const choice = await Swal.fire({
           title: 'Error',
           text: 'Para agregar productos al carrito, por favor inicia sesión o regístrate. ¿Quieres iniciar sesión?',
@@ -62,22 +62,19 @@ function Productcard({
           showCancelButton: true,
           confirmButtonText: 'Continuar',
           cancelButtonText: 'Cancelar',
-          confirmButtonColor: '#e62f05', 
-          cancelButtonColor: '#404145' 
+          confirmButtonColor: '#47A584',  // PrimaryColor
+          cancelButtonColor: '#1A1A1A'    // Black
         });
 
         if (choice.isConfirmed) {
           window.location.href = "/userlogin";
           return;
         } else {
-          
           return;
         }
       }
 
       setLoading(true);
-
-      
 
       const response = await axios.post(
         "https://drewili-pf-back.onrender.com/salesCart/addToSalesCart",
@@ -88,8 +85,6 @@ function Productcard({
         }
       );
 
-      
-
       setAddedToCart(true);
     } catch (error) {
       console.error("Error en la solicitud:", error);
@@ -97,12 +92,12 @@ function Productcard({
       setLoading(false);
     }
   };
+
   const handleAddToFavorites = async () => {
     try {
       setLoadingFavorites(true);
 
       if (!userId) {
-        
         const choice = await Swal.fire({
           title: 'Error',
           text: 'Para continuar, por favor inicia sesión o regístrate. ¿Quieres iniciar sesión?',
@@ -110,16 +105,14 @@ function Productcard({
           showCancelButton: true,
           confirmButtonText: 'Continuar',
           cancelButtonText: 'Cancelar',
-          confirmButtonColor: '#e62f05', 
-          cancelButtonColor: '#404145'  
+          confirmButtonColor: '#47A584', // PrimaryColor
+          cancelButtonColor: '#1A1A1A'   // Black
         });
 
         if (choice.isConfirmed) {
-         
           window.location.href = "/userlogin";
           return;
         } else {
-          
           return;
         }
       }
@@ -131,8 +124,6 @@ function Productcard({
           user_id: userId,
         }
       );
-
-      
 
       setAddedToFavorites(true);
     } catch (error) {
@@ -155,26 +146,26 @@ function Productcard({
         className="flex flex-col items-center justify-center"
       >
         <div className="tablet:w-48">
-
-          <img src={images?.[0]} className="w-full h-52 object-contain object-center rounded-t">
-          </img>
-
+          <img
+            src={images || 'https://www.decoalive.com/wp-content/uploads/2021/05/albahaca.jpg'}
+            className="w-full h-52 object-contain object-center rounded-t"
+            alt={name}
+          />
         </div>
         <div className="mt-4 text-center">
-          <h2 className="text-lg font-semibold">{TruncateText({ text: name.toUpperCase(), maxLength: MAX_NAME_LENGTH })}</h2>
+          <h2 className="text-lg font-semibold text-primary-color">
+            {TruncateText({ text: name.toUpperCase(), maxLength: MAX_NAME_LENGTH })}
+          </h2>
           <div className="flex justify-between items-center mt-2 flex-col">
-            {
-              realPrice && discount > 0 ? 
-                <>
-                  <h3 className="line-through">S/ {realPrice}</h3>
-                  <h3 className="text-gray-600 font-bold">S/ {price}</h3>
-                </> 
-                :
-                <h3 className="text-gray-600 font-bold">S/ {price}</h3>
-          }
-
-
-            <h3 className="text-gray-600">{color}</h3>
+            {realPrice && discount > 0 ? (
+              <>
+                <h3 className="line-through text-secondary-color">$ {realPrice}</h3>
+                <h3 className="text-neutral-color font-bold">$ {price}</h3>
+              </>
+            ) : (
+              <h3 className="text-neutral-color font-bold">$ {price}</h3>
+            )}
+            <h3 className="text-secondary-color">{color}</h3>
           </div>
         </div>
       </NavLink>
@@ -182,7 +173,7 @@ function Productcard({
       <div className="flex gap-4 mt-4">
         {stock === 0 ? (
           <button
-            className="bg-onyx text-whiteSmoke font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
+            className="bg-black text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline"
             disabled
           >
             <img
@@ -194,8 +185,9 @@ function Productcard({
         ) : (
           <button
             onClick={handleAddToCart}
-            className={`transition duration-300 ${addedToCart ? "bg-whiteSmoke" : "bg-chiliRed"
-              } hover:bg-onyx text-whiteSmoke font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline`}
+            className={`transition duration-300 ${
+              addedToCart ? "bg-white" : "bg-primary-color"
+            } hover:bg-black text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline`}
             disabled={loading || addedToCart}
           >
             <img
@@ -208,15 +200,14 @@ function Productcard({
 
         <button
           onClick={handleAddToFavorites}
-          className={`transition duration-300 ${addedToFavorites ? "bg-whiteSmoke" : "bg-chiliRed"
-            } hover:bg-onyx text-whiteSmoke font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline`}
+          className={`transition duration-300 ${
+            addedToFavorites ? "bg-white" : "bg-primary-color"
+          } hover:bg-black text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline`}
           disabled={loadingFavorites || addedToFavorites}
         >
           <img
             src={addedToFavorites ? filledHeartIcon : emptyHeartIcon}
-            alt={
-              addedToFavorites ? "Agregado a favoritos" : "Agregar a favoritos"
-            }
+            alt={addedToFavorites ? "Agregado a favoritos" : "Agregar a favoritos"}
             className="w-6 h-6"
           />
         </button>
@@ -224,4 +215,5 @@ function Productcard({
     </div>
   );
 }
+
 export default Productcard;

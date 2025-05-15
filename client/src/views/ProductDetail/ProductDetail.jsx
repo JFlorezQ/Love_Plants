@@ -297,13 +297,13 @@ const settings = {
       </NavLink>
       <article className="tablet:flex">
         <div className="shadow-xl tablet:ml-5 tablet:w-40vw tablet:h-auto bg-white border-grey border-[1px] sm:m-6 rounded">
-          <Slider {...settings2}>
-            {product.imageArray?.map((img, index) => (
-              <div key={index} className="p-20">
-                <img src={img} className="w-auto h-80 object-contain mx-auto" />
-              </div>
-            ))}
-            </Slider>
+        <Slider {...settings2}>
+  {(product.imageArray && product.imageArray.length > 0 ? product.imageArray : ['https://www.decoalive.com/wp-content/uploads/2021/05/albahaca.jpg']).map((img, index) => (
+    <div key={index} className="p-20">
+      <img src={img} className="w-auto h-80 object-contain mx-auto" alt={`Imagen ${index + 1} de ${product.name}`} />
+    </div>
+  ))}
+</Slider>
         </div>
 
         <div className=" tablet:ml-8 p-8 flex flex-col border-grey border-[1px] rounded-xl tablet:w-[500px] sm:w-[60%] mx-auto">
